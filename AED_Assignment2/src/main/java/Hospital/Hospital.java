@@ -5,6 +5,11 @@
 package Hospital;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
+import java.awt.print.PrinterException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -31,20 +36,20 @@ public class Hospital extends javax.swing.JFrame {
 
         jLabel7 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        prescrp = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
+        update = new javax.swing.JButton();
+        delete = new javax.swing.JButton();
+        doctor = new javax.swing.JButton();
+        appointment = new javax.swing.JButton();
+        patient = new javax.swing.JButton();
+        reset = new javax.swing.JButton();
+        prescription = new javax.swing.JButton();
+        login = new javax.swing.JButton();
+        print = new javax.swing.JButton();
+        exit = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
@@ -86,9 +91,9 @@ public class Hospital extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 102, 102));
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 4, true));
 
-        jLabel1.setFont(new java.awt.Font("DialogInput", 1, 36)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Patient prescription");
+        prescrp.setFont(new java.awt.Font("DialogInput", 1, 36)); // NOI18N
+        prescrp.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        prescrp.setText("Patient prescription");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -96,13 +101,13 @@ public class Hospital extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(150, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(prescrp, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(99, 99, 99))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(prescrp, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 12, Short.MAX_VALUE))
         );
 
@@ -130,33 +135,38 @@ public class Hospital extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(0, 102, 102));
         jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 4, true));
 
-        jButton1.setText("Update");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        update.setText("Update");
+        update.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                updateActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Delete");
+        delete.setText("Delete");
 
-        jButton3.setText("Doctor");
+        doctor.setText("Doctor");
 
-        jButton4.setText("Appointment");
+        appointment.setText("Appointment");
 
-        jButton5.setText("Patient");
+        patient.setText("Patient");
 
-        jButton6.setText("Reset");
+        reset.setText("Reset");
 
-        jButton7.setText("Prescription");
+        prescription.setText("Prescription");
 
-        jButton8.setText("Login");
+        login.setText("Login");
 
-        jButton9.setText("Print");
-
-        jButton10.setText("Exit");
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
+        print.setText("Print");
+        print.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
+                printActionPerformed(evt);
+            }
+        });
+
+        exit.setText("Exit");
+        exit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitActionPerformed(evt);
             }
         });
 
@@ -166,25 +176,25 @@ public class Hospital extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(update)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addComponent(delete)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3)
+                .addComponent(doctor)
                 .addGap(18, 18, 18)
-                .addComponent(jButton4)
+                .addComponent(appointment)
                 .addGap(18, 18, 18)
-                .addComponent(jButton5)
+                .addComponent(patient)
                 .addGap(18, 18, 18)
-                .addComponent(jButton6)
+                .addComponent(reset)
                 .addGap(18, 18, 18)
-                .addComponent(jButton7)
+                .addComponent(prescription)
                 .addGap(18, 18, 18)
-                .addComponent(jButton8)
+                .addComponent(login)
                 .addGap(18, 18, 18)
-                .addComponent(jButton9)
+                .addComponent(print)
                 .addGap(18, 18, 18)
-                .addComponent(jButton10)
+                .addComponent(exit)
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -192,16 +202,16 @@ public class Hospital extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(jButton5)
-                    .addComponent(jButton6)
-                    .addComponent(jButton7)
-                    .addComponent(jButton8)
-                    .addComponent(jButton9)
-                    .addComponent(jButton4)
-                    .addComponent(jButton10))
+                    .addComponent(update)
+                    .addComponent(delete)
+                    .addComponent(doctor)
+                    .addComponent(patient)
+                    .addComponent(reset)
+                    .addComponent(prescription)
+                    .addComponent(login)
+                    .addComponent(print)
+                    .addComponent(appointment)
+                    .addComponent(exit))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
@@ -413,7 +423,7 @@ public class Hospital extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel10)
-                                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(12, 12, 12)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -446,13 +456,28 @@ public class Hospital extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_updateActionPerformed
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-       
-    }//GEN-LAST:event_jButton10ActionPerformed
+    private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
+       frame = new JFrame();
+       if(JOptionPane.showConfirmDialog(frame,"Please confirm if you want to exit",
+            "HOSPITAL MANAGEMENT", 
+            JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION){
+           System.exit(0);
+           
+       }
+    }//GEN-LAST:event_exitActionPerformed
+
+    private void printActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printActionPerformed
+       /* try{
+            jtxtPrescription.print();
+        }catch (PrinterException ex){
+            Logger.getLogger(Hospital.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        */
+    }//GEN-LAST:event_printActionPerformed
 
     /**
      * @param args the command line arguments
@@ -490,18 +515,11 @@ public class Hospital extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
+    private javax.swing.JButton appointment;
+    private javax.swing.JButton delete;
+    private javax.swing.JButton doctor;
+    private javax.swing.JButton exit;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
@@ -536,5 +554,12 @@ public class Hospital extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
+    private javax.swing.JButton login;
+    private javax.swing.JButton patient;
+    private javax.swing.JButton prescription;
+    private javax.swing.JLabel prescrp;
+    private javax.swing.JButton print;
+    private javax.swing.JButton reset;
+    private javax.swing.JButton update;
     // End of variables declaration//GEN-END:variables
 }
