@@ -522,6 +522,40 @@ public class Hospital extends javax.swing.JFrame {
         String Qty4 = (nooftablets.getText());
         String Qty5 = (dateissue.getText());
         String Qty6 = (expdate.getText());
+        String Qty7 = (patientid.getText());
+        String Qty8 = (patientname.getText());
+        String Qty9 = (dob.getText());
+        String Qty10 = (address.getText());
+        String Qty11 = "";
+        
+        if (medslist.getSelectedItem().equals("Ibuprofen"))
+        {
+            Qty11 = "Ibuprofen";
+        }
+        else if (medslist.getSelectedItem().equals("Cetrizine"))
+        {
+            Qty11 = "Cetrizine";
+        }
+         else if (medslist.getSelectedItem().equals("Dolo650"))
+        {
+            Qty11 = "Dolo650";
+        }
+         else if (medslist.getSelectedItem().equals("Paracetamol"))
+        {
+            Qty11 = "Paracetamol";
+        }
+        
+        
+        printpres.setText("");
+        printpres.append("\t\n\t Hospital Management \n" 
+        +"\t Patient ID:"+ Qty7
+        +"\t Patient Name:"+ Qty8
+        +"\t Patient DOB:"+ Qty9
+        +"\t Patient Address:"+ Qty10
+        +"\n\n Patient instruction we have introduced a \n\n free text confirmation\t"
+        +"TEXT REMINDERS FOR APPOINTMENT");
+                
+        
 
 
     }//GEN-LAST:event_prescriptionActionPerformed
