@@ -577,6 +577,7 @@ public class Hospital extends javax.swing.JFrame {
            nooftablets.setText("");
            dateissue.setText("");
            expdate.setText("");
+           
     }//GEN-LAST:event_resetActionPerformed
 
     /**
