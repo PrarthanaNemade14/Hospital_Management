@@ -151,6 +151,11 @@ public class Hospital extends javax.swing.JFrame {
         patient.setText("Patient");
 
         reset.setText("Reset");
+        reset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resetActionPerformed(evt);
+            }
+        });
 
         prescription.setText("Prescription");
         prescription.addActionListener(new java.awt.event.ActionListener() {
@@ -564,6 +569,15 @@ public class Hospital extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_prescriptionActionPerformed
+
+    private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
+           refno.setText("");
+           dailydose.setText("");
+           dose.setText("");
+           nooftablets.setText("");
+           dateissue.setText("");
+           expdate.setText("");
+    }//GEN-LAST:event_resetActionPerformed
 
     /**
      * @param args the command line arguments
