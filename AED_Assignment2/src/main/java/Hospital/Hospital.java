@@ -231,7 +231,7 @@ public class Hospital extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 436, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -523,6 +523,7 @@ public class Hospital extends javax.swing.JFrame {
         String Qty8 = (patientname.getText());
         String Qty9 = (dob.getText());
         String Qty10 = (address.getText());
+        String Qty12 = (anycomments.getText());
         String Qty11 = "";
         
         if (medslist.getSelectedItem().equals("Ibuprofen"))
@@ -549,6 +550,13 @@ public class Hospital extends javax.swing.JFrame {
         +"\n Patient Name:\t\t"+ Qty8
         +"\n Patient DOB:\t\t"+ Qty9
         +"\n Patient Address:\t\t"+ Qty10
+        +"\n Reference no.:\t\t"+ Qty1
+        +"\n Dose(mg):\t\t"+ Qty2
+        +"\n Daily dose:\t\t"+ Qty3
+        +"\n No. of tablets:\t\t"+ Qty4
+        +"\n Date of issue:\t\t"+ Qty5
+        +"\n Date of expiry:\t\t"+ Qty6
+        +"\n Any comments:\t\t"+ Qty12
         +"\n\n Patient instruction we have introduced a \n\n free text confirmation\t"
         +"TEXT REMINDERS FOR APPOINTMENT");
                 
