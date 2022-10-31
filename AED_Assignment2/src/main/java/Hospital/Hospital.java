@@ -241,16 +241,17 @@ public class Hospital extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1)
-                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(268, 268, 268))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 12, Short.MAX_VALUE))
+                .addGap(14, 14, 14)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
@@ -385,7 +386,8 @@ public class Hospital extends javax.swing.JFrame {
                                     .addComponent(anycomments, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(dose, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 577, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
@@ -560,19 +562,17 @@ public class Hospital extends javax.swing.JFrame {
         
         printpres.setText("");
         printpres.append("\t\n\t Hospital Management \n" 
-        +"\n Patient ID:\t"+ Qty7
+        +"\n Patient ID:\t\t\t"+ Qty7
         +"\n Patient Name:\t\t"+ Qty8
-        +"\n Patient DOB:\t\t"+ Qty9
+        +"\n Patient DOB:\t\t\t"+ Qty9
         +"\n Patient Address:\t\t"+ Qty10
         +"\n Reference no.:\t\t"+ Qty1
-        +"\n Dose(mg):\t\t"+ Qty2
-        +"\n Daily dose:\t\t"+ Qty3
+        +"\n Dose(mg):\t\t\t"+ Qty2
+        +"\n Daily dose:\t\t\t"+ Qty3
         +"\n No. of tablets:\t\t"+ Qty4
         +"\n Date of issue:\t\t"+ Qty5
         +"\n Date of expiry:\t\t"+ Qty6
-        +"\n Any comments:\t\t"+ Qty12
-        +"\n\n Patient instruction we have introduced a \n\n free text confirmation\t"
-        +"TEXT REMINDERS FOR APPOINTMENT");
+        +"\n Any comments:\t\t"+ Qty12 );
                 
         
 
@@ -608,7 +608,7 @@ public class Hospital extends javax.swing.JFrame {
              JOptionPane.OK_OPTION);
              
          }  else {
-             JOptionPane.showMessageDialog(null, "Select a row todelete","Hospital manageement", 
+             JOptionPane.showMessageDialog(null, "Select a row to delete","Hospital manageement", 
              JOptionPane.OK_OPTION);
          } 
         } else{
