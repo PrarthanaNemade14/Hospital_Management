@@ -164,6 +164,11 @@ public class Hospital extends javax.swing.JFrame {
         });
 
         login.setText("Login");
+        login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginActionPerformed(evt);
+            }
+        });
 
         print.setText("Print");
         print.addActionListener(new java.awt.event.ActionListener() {
@@ -578,6 +583,12 @@ public class Hospital extends javax.swing.JFrame {
     private void patientidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patientidActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_patientidActionPerformed
+
+    private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
+         Login log = new Login();
+         log.setVisible(true);
+         
+    }//GEN-LAST:event_loginActionPerformed
 
     /**
      * @param args the command line arguments
