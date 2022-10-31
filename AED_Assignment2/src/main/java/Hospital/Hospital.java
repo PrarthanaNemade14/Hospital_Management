@@ -6,6 +6,7 @@ package Hospital;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 import java.awt.print.PrinterException;
 import java.util.logging.Level;
@@ -78,7 +79,7 @@ public class Hospital extends javax.swing.JFrame {
         jLabel33 = new javax.swing.JLabel();
         dailydose = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        table = new javax.swing.JTable();
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel7.setText("Medicine name:");
@@ -142,6 +143,11 @@ public class Hospital extends javax.swing.JFrame {
         });
 
         delete.setText("Delete");
+        delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteActionPerformed(evt);
+            }
+        });
 
         doctor.setText("Doctor");
 
@@ -164,11 +170,6 @@ public class Hospital extends javax.swing.JFrame {
         });
 
         login.setText("Login");
-        login.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginActionPerformed(evt);
-            }
-        });
 
         print.setText("Print");
         print.addActionListener(new java.awt.event.ActionListener() {
@@ -189,7 +190,7 @@ public class Hospital extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(455, Short.MAX_VALUE)
                 .addComponent(update)
                 .addGap(18, 18, 18)
                 .addComponent(delete)
@@ -240,14 +241,16 @@ public class Hospital extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 436, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 12, Short.MAX_VALUE))
         );
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
@@ -322,7 +325,7 @@ public class Hospital extends javax.swing.JFrame {
 
         dailydose.setText(" ");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -330,7 +333,7 @@ public class Hospital extends javax.swing.JFrame {
                 "Medicine name", "Sr. no.", "Patient name", "Patient ID", "DOB", "Address", "Daily dose", "Dose(mg)", "No. of tablets", "Date of issue.", "Exp. date", "Any comments"
             }
         ));
-        jScrollPane2.setViewportView(jTable1);
+        jScrollPane2.setViewportView(table);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -381,8 +384,8 @@ public class Hospital extends javax.swing.JFrame {
                                     .addComponent(expdate, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(anycomments, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(dose, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
@@ -495,7 +498,13 @@ public class Hospital extends javax.swing.JFrame {
     }//GEN-LAST:event_refnoActionPerformed
 
     private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
-        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) table.getModel();
+        model.addRow(new Object[]{medslist.getSelectedItem().toString(),
+            refno.getText(), patientname.getText(), patientid.getText(), 
+            dob.getText(), address.getText(), dailydose.getText(),
+            dose.getText(), nooftablets.getText(), dateissue.getText(),
+            expdate.getText(), anycomments.getText()
+        });
     }//GEN-LAST:event_updateActionPerformed
 
     private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
@@ -571,12 +580,18 @@ public class Hospital extends javax.swing.JFrame {
     }//GEN-LAST:event_prescriptionActionPerformed
 
     private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
-           refno.setText("");
-           dailydose.setText("");
-           dose.setText("");
-           nooftablets.setText("");
-           dateissue.setText("");
-           expdate.setText("");
+        //medslist.setText("");   
+            refno.setText("");
+            patientname.setText("");
+            patientid.setText(""); 
+            dob.setText("");
+            address.setText("");
+            dailydose.setText("");
+            dose.setText("");
+            nooftablets.setText("");
+            dateissue.setText("");
+            expdate.setText(""); 
+            anycomments.setText("");
            
     }//GEN-LAST:event_resetActionPerformed
 
@@ -584,11 +599,22 @@ public class Hospital extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_patientidActionPerformed
 
-    private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
-         Login log = new Login();
-         log.setVisible(true);
-         
-    }//GEN-LAST:event_loginActionPerformed
+    private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
+        DefaultTableModel model = (DefaultTableModel) table.getModel();
+        if (table.getSelectedRow() == -1)
+        {
+         if(table.getRowCount() == 0){
+             JOptionPane.showMessageDialog(null, "No data to delete","Hospital manageement", 
+             JOptionPane.OK_OPTION);
+             
+         }  else {
+             JOptionPane.showMessageDialog(null, "Select a row todelete","Hospital manageement", 
+             JOptionPane.OK_OPTION);
+         } 
+        } else{
+            model.removeRow(table.getSelectedRow());
+        }
+    }//GEN-LAST:event_deleteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -656,7 +682,6 @@ public class Hospital extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JButton login;
     private javax.swing.JComboBox<String> medslist;
     private javax.swing.JTextField nooftablets;
@@ -670,6 +695,7 @@ public class Hospital extends javax.swing.JFrame {
     private javax.swing.JTextField refno;
     private javax.swing.JLabel refnoo;
     private javax.swing.JButton reset;
+    private javax.swing.JTable table;
     private javax.swing.JButton update;
     // End of variables declaration//GEN-END:variables
 }
