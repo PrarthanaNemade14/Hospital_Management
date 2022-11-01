@@ -4,11 +4,16 @@
  */
 package Hospital;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author nemad
  */
 public class encounterDr extends javax.swing.JFrame {
+    private JFrame frame;
 
     /**
      * Creates new form encounterDr
@@ -41,7 +46,7 @@ public class encounterDr extends javax.swing.JFrame {
         exit = new javax.swing.JButton();
         clear = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tableencounter = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -79,6 +84,11 @@ public class encounterDr extends javax.swing.JFrame {
         delete.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         delete.setForeground(new java.awt.Color(0, 102, 102));
         delete.setText("DELETE");
+        delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteActionPerformed(evt);
+            }
+        });
 
         update.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         update.setForeground(new java.awt.Color(0, 102, 102));
@@ -92,13 +102,23 @@ public class encounterDr extends javax.swing.JFrame {
         exit.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         exit.setForeground(new java.awt.Color(0, 102, 102));
         exit.setText("EXIT");
+        exit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitActionPerformed(evt);
+            }
+        });
 
         clear.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         clear.setForeground(new java.awt.Color(0, 102, 102));
         clear.setText("CLEAR");
+        clear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearActionPerformed(evt);
+            }
+        });
 
-        jTable1.setBackground(new java.awt.Color(204, 204, 204));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tableencounter.setBackground(new java.awt.Color(204, 204, 204));
+        tableencounter.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -106,10 +126,11 @@ public class encounterDr extends javax.swing.JFrame {
                 "Patient ID", "Patient Name", "Diagnosis", "Date"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tableencounter);
 
         jLabel4.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         jLabel4.setText("ENCOUNTERS:");
+        jLabel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -189,11 +210,11 @@ public class encounterDr extends javax.swing.JFrame {
                             .addComponent(clear)
                             .addComponent(delete)
                             .addComponent(exit))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38))
+                .addContainerGap(88, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -215,8 +236,48 @@ public class encounterDr extends javax.swing.JFrame {
     }//GEN-LAST:event_pidActionPerformed
 
     private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
-        
+        DefaultTableModel model = (DefaultTableModel) tableencounter.getModel();
+        model.addRow(new Object[]{
+            pid.getText(), pname.getText(), diagnosis.getText(), 
+            date.getText()
+        });
     }//GEN-LAST:event_updateActionPerformed
+
+    private void clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearActionPerformed
+        // TODO add your handling code here:
+        pid.setText("");
+        pname.setText("");
+        diagnosis.setText(""); 
+        date.setText("");
+    }//GEN-LAST:event_clearActionPerformed
+
+    private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) tableencounter.getModel();
+        if (tableencounter.getSelectedRow() == -1)
+        {
+         if(tableencounter.getRowCount() == 0){
+             JOptionPane.showMessageDialog(null, "No data to delete","Hospital manageement", 
+             JOptionPane.OK_OPTION);
+             
+         }  else {
+             JOptionPane.showMessageDialog(null, "Select a row to delete","Hospital manageement", 
+             JOptionPane.OK_OPTION);
+         } 
+        } else{
+            model.removeRow(tableencounter.getSelectedRow());
+        }
+    }//GEN-LAST:event_deleteActionPerformed
+
+    private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
+        // TODO add your handling code here:
+        frame = new JFrame();
+       if(JOptionPane.showConfirmDialog(frame,"Please confirm if you want to exit",
+            "HOSPITAL MANAGEMENT", 
+            JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION){
+           System.exit(0);
+       }
+    }//GEN-LAST:event_exitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -267,9 +328,9 @@ public class encounterDr extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField pid;
     private javax.swing.JTextField pname;
+    private javax.swing.JTable tableencounter;
     private javax.swing.JButton update;
     // End of variables declaration//GEN-END:variables
 }
